@@ -10,10 +10,12 @@
 
 </head>
 <body>
+  <chartTag></chartTag>
 <div class = "container">
 <canvas id = "mychart"></canvas>
 </div>
-
+<script src ="tags/chartTag.tag"  type="riot/tag"></script>
+<script src="js/riot+compiler.js"></script>
 <script>
   let mychart = document.getElementById('mychart').getContext('2d');
   let massPopChart = new Chart(mychart, {
@@ -33,6 +35,9 @@
       options:{}
 
   });
+
+  riot.mount('*');
+
 </script>
 
 </body>
