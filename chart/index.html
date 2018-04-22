@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+<meta charset = "UTF -8">
+<meta name = "viewport" content="width=device-width, initial-scale = 1.0">
+<meta http-equiv = "X-UA-Compatible" content = "ie=edge">
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+<title> Document </title>
+
+</head>
+<body>
+<div class = "container">
+<canvas id = "mychart"></canvas>
+</div>
+
+<script>
+  let mychart = document.getElementById('mychart').getContext('2d');
+  let massPopChart = new Chart(mychart, {
+      type : 'line',// bar, horizontal, pie, line, doughnut, radar, polar
+      data:{
+      labels: ['4/20','4/21','4/22','4/23','4/24','4,25'],
+    datasets: [ {
+      label:'Population',
+      data:[
+100,150,200,600,100,120,130
+
+
+      ]
+
+    }]
+  },
+      options:{}
+
+  });
+</script>
+
+</body>
+</html>
