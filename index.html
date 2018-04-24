@@ -1,63 +1,43 @@
 <!DOCTYPE html>
-<html lang="EN">
-    <head>
-        <title>Children Progress</title>
-    </head>
-    <body>
-		<rg-chart></rg-chart>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/riot/2.6.2/riot+compiler.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/riotgear/latest/rg.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/chart.js/1.0.2/Chart.min.js"></script>
-        <script  type="riot/tag">
-        </script>
-        <script>
-　　　　riot.mount('rg-chart', {
-	  　　　　chart: {
-			　　　type: 'line',
-      options: {
-        bezierLine :false
+	<!-- Riot Mount Point -->
+	<app></app>
 
-      },
-      // options is not working although we reviewed chart js documentation
-      //bezierline, steppedline, display, not working
+	<!-- Riot TAGS -->
+	<script src="tags/app.tag" type="riot/tag"></script>
 
-			　　　data: {
-				　　　labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-				　　　datasets: [{
+	<!-- Riot + Firebase IMPORT -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/riot/3.8.1/riot+compiler.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
 
-					　　　label: "Week1",
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyBEbOWvV5Fig3eNvWVWValUExl-_WBBxEo",
+	    authDomain: "mstu5013.firebaseapp.com",
+	    databaseURL: "https://mstu5013.firebaseio.com",
+	    projectId: "mstu5013",
+	    storageBucket: "mstu5013.appspot.com",
+	    messagingSenderId: "953045445181"
+	  };
+	  firebase.initializeApp(config);
 
-					　　　fillColor: "rgba(220,220,220,1)",
-					　　　strokeColor: "rgba(220,220,220,1)",
-					　　　pointColor: "rgba(220,220,220,1)",
-					　　　pointStrokeColor: "#fff",
-					　　　pointHighlightFill: "#fff",
-					　　　pointHighlightStroke: "rgba(220,220,220,1)",
-					　　　data: [60, 45, 33, 68, 70]
-				　　　}, {
-					　　　label: "Week5",
-					　　　fillColor: "rgba(153, 102, 255,0.2)",
-					　　　strokeColor: "rgba(151,187,205,1)",
-					　　　pointColor: "rgba(151,187,205,1)",
-					　　　pointStrokeColor: "#fff",
-					　　　pointHighlightFill: "#fff",
-					　　　pointHighlightStroke: "rgba(151,187,205,1)",
-					　　　data: [70, 80, 50, 70, 90]
-				　　　},{
-              label: "Week10",
-        　　　  fillColor: "rgba(153, 102, 255,0.2)",
-        　　　  strokeColor: "rgba(151,187,205,1)",
-        　　　  pointColor: "rgba(151,187,205,1)",
-        　　　  pointStrokeColor: "#fff",
-        　　　  pointHighlightFill: "#fff",
-        　　　  pointHighlightStroke: "rgba(151,187,205,1)",
-        　　　  data: [70, 90, 65, 90, 80]
-      　　　}]
-    }
+		// Firebase Cached References
+		var database = firebase.database();
+		var rootRef = database.ref('/');
 
-		　　}
-	　　});
-        </script>
-    </body>
+		// Initialize RiotJS
+		riot.mount('*');
+	</script>
+
+</body>
 </html>
