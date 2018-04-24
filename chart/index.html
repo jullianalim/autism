@@ -15,28 +15,47 @@
 　　　　riot.mount('rg-chart', {
 	  　　　　chart: {
 			　　　type: 'line',
+      options: {
+        bezierLine :false
+
+      },
+      // options is not working although we reviewed chart js documentation
+      //bezierline, steppedline, display, not working 
+
 			　　　data: {
-				　　　labels: ["January", "February", "March", "April", "May", "June", "July"],
+				　　　labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
 				　　　datasets: [{
-					　　　label: "My First dataset",
-					　　　fillColor: "rgba(220,220,220,0.2)",
+
+					　　　label: "Week1",
+
+					　　　fillColor: "rgba(220,220,220,1)",
 					　　　strokeColor: "rgba(220,220,220,1)",
 					　　　pointColor: "rgba(220,220,220,1)",
 					　　　pointStrokeColor: "#fff",
 					　　　pointHighlightFill: "#fff",
 					　　　pointHighlightStroke: "rgba(220,220,220,1)",
-					　　　data: [65, 59, 80, 81, 56, 55, 40]
+					　　　data: [60, 45, 33, 68, 70]
 				　　　}, {
-					　　　label: "My Second dataset",
-					　　　fillColor: "rgba(151,187,205,0.2)",
+					　　　label: "Week5",
+					　　　fillColor: "rgba(153, 102, 255,0.2)",
 					　　　strokeColor: "rgba(151,187,205,1)",
 					　　　pointColor: "rgba(151,187,205,1)",
 					　　　pointStrokeColor: "#fff",
 					　　　pointHighlightFill: "#fff",
 					　　　pointHighlightStroke: "rgba(151,187,205,1)",
-					　　　data: [28, 48, 40, 19, 86, 27, 90]
-				　　　}]
-			　　}
+					　　　data: [70, 80, 50, 70, 90]
+				　　　},{
+              label: "Week10",
+        　　　  fillColor: "rgba(153, 102, 255,0.2)",
+        　　　  strokeColor: "rgba(151,187,205,1)",
+        　　　  pointColor: "rgba(151,187,205,1)",
+        　　　  pointStrokeColor: "#fff",
+        　　　  pointHighlightFill: "#fff",
+        　　　  pointHighlightStroke: "rgba(151,187,205,1)",
+        　　　  data: [70, 90, 65, 90, 80]
+      　　　}]
+    }
+
 		　　}
 	　　});
         </script>
