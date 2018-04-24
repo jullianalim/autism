@@ -1,39 +1,44 @@
 <!DOCTYPE html>
-<html lang = "en">
-<head>
-<meta charset = "UTF -8">
-<meta name = "viewport" content="width=device-width, initial-scale = 1.0">
-<meta http-equiv = "X-UA-Compatible" content = "ie=edge">
-<script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-<title> Document </title>
+<html lang="EN">
+    <head>
+        <title>Children Progress</title>
+    </head>
+    <body>
+		<rg-chart></rg-chart>
 
-</head>
-<body>
-<div class = "container">
-<canvas id = "mychart"></canvas>
-</div>
-
-<script>
-  let mychart = document.getElementById('mychart').getContext('2d');
-  let massPopChart = new Chart(mychart, {
-      type : 'line',// bar, horizontal, pie, line, doughnut, radar, polar
-      data:{
-      labels: ['4/20','4/21','4/22','4/23','4/24','4,25'],
-    datasets: [ {
-      label:'Population',
-      data:[
-100,150,200,600,100,120,130
-
-
-      ]
-
-    }]
-  },
-      options:{}
-
-  });
-</script>
-
-</body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/riot/2.6.2/riot+compiler.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/riotgear/latest/rg.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/chart.js/1.0.2/Chart.min.js"></script>
+        <script  type="riot/tag">
+        </script>
+        <script>
+　　　　riot.mount('rg-chart', {
+	  　　　　chart: {
+			　　　type: 'line',
+			　　　data: {
+				　　　labels: ["January", "February", "March", "April", "May", "June", "July"],
+				　　　datasets: [{
+					　　　label: "My First dataset",
+					　　　fillColor: "rgba(220,220,220,0.2)",
+					　　　strokeColor: "rgba(220,220,220,1)",
+					　　　pointColor: "rgba(220,220,220,1)",
+					　　　pointStrokeColor: "#fff",
+					　　　pointHighlightFill: "#fff",
+					　　　pointHighlightStroke: "rgba(220,220,220,1)",
+					　　　data: [65, 59, 80, 81, 56, 55, 40]
+				　　　}, {
+					　　　label: "My Second dataset",
+					　　　fillColor: "rgba(151,187,205,0.2)",
+					　　　strokeColor: "rgba(151,187,205,1)",
+					　　　pointColor: "rgba(151,187,205,1)",
+					　　　pointStrokeColor: "#fff",
+					　　　pointHighlightFill: "#fff",
+					　　　pointHighlightStroke: "rgba(151,187,205,1)",
+					　　　data: [28, 48, 40, 19, 86, 27, 90]
+				　　　}]
+			　　}
+		　　}
+	　　});
+        </script>
+    </body>
 </html>
