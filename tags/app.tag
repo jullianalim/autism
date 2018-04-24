@@ -1,6 +1,6 @@
 <app>
 
-	<h1>CHART JS in Riot</h1>
+	<h1>Children Progress Tracker</h1>
 	<canvas ref="myChart" width="100%"></canvas>
 
 	<script>
@@ -15,16 +15,15 @@
 			var ctx = this.refs.myChart.getContext('2d');
 			var myChart = new Chart(ctx, {
 				type: 'line',
+      
 				data: {
 					labels: [ "Monday", "Tuesday","Wednesday" ,"Thursday", "Friday" ],
-					datasets: [
+        
+          datasets: [
 						{
 							label: 'accuracy',
-
-							// This might come from the database.
-							// We know it requires an array of numbers.
-							// Question is how do we convert the shape of our data from the DB
-							// To a format that ChartJS wants?
+              lineTension: 0,
+               pointRadius: 5,
 							data: [ 12,19,3,5,2,3 ],
 							backgroundColor: [
 								'rgba(255, 99, 132, 0.2)',
@@ -45,21 +44,10 @@
 							borderWidth: 1
 						}
 					]
-				},
-				options: {
-					scales: {
-						yAxes: [
-							{
-								ticks: {
-									beginAtZero: true
-								}
-							}
-						]
-					}
 				}
 			});
 		});
-
+  
 		this.on('updated', function() {
 			console.log('updated');
 		});
