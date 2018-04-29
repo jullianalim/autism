@@ -1,11 +1,16 @@
 <custom-tooltip>
 
+<<<<<<< HEAD
 	    
       <p>comments: {  opts.tooltipData.xLabel}</p>
+=======
+	    <input type="text" ref="comment">
+      <p>Observation Comments: { opts.message}</p>
+>>>>>>> db172333d41d7408f4ad06f5c54d06f43a1e36a7
  <!-- <p>Y Value: { opts.tooltipData.yLabel }</p>
 	<p>blah { opts.x }</p> -->
 
-	<button onclick={doSomething }>Click</button>
+	<button onclick={doSomething }>Comment</button>
 
 	<script>
 		var that = this;

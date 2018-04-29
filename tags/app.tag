@@ -1,9 +1,18 @@
 <app>
 
   <h1>Student Progress Tracker</h1>
+  <p>Weekly Learn Unit Scores</p>
   <canvas ref="myChart" width="100%"></canvas>
+<<<<<<< HEAD
   <input type="text" ref="comment">
   <input type="number" ref="score">
+=======
+
+
+  <br></br>
+  <h3>Data Input</h3>
+  <p>Select day and enter today's Learn Unit Score.</p>
+>>>>>>> db172333d41d7408f4ad06f5c54d06f43a1e36a7
   <select ref="dayOfWeek" onchange={ setDay }>
     <option value="m">Monday</option>
     <option value="t">Tuesday</option>
@@ -11,9 +20,16 @@
     <option value="r">Thursday</option>
     <option value="f">Friday</option>
   </select>
+<<<<<<< HEAD
   <button onclick={ setNumber }>Enter Number</button>
 
   <custom-tooltip ref="myTooltip" tooltip-data={ tooltipData } x={"Jin"}></custom-tooltip>
+=======
+  <input type="number" ref="score">
+	<button onclick={ setNumber }>Enter Unit Score</button>
+  <br></br>
+	<custom-tooltip ref="myTooltip" tooltip-data={ tooltipData } x={"Jin"}></custom-tooltip>
+>>>>>>> db172333d41d7408f4ad06f5c54d06f43a1e36a7
 
   <script>
     var tag = this;
@@ -47,11 +63,81 @@
 
 
     setNumber(e) {
+<<<<<<< HEAD
       var score = this.refs.score.value;
 
       console.log(this.chart.data.datasets);
 
       scoresRef.child(this.day + '/score').set(score);
+=======
+  var score = this.refs.score.value;
+
+  console.log(this.chart.data.datasets);
+
+  scoresRef.child(this.day + '/score').set(score);
+
+  // this.chart.data.datasets[0].data[this.day] = score;
+  // this.chart.data.labels[0] = 'MONDAY';
+  //
+  // this.chart.update();
+}
+
+
+this.on('mount', function(){
+  var ctx = this.refs.myChart.getContext('2d');
+  this.chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ["M", "T", "W", "R", "F"],
+        datasets: [{
+            label: 'Current Week',
+            data: this.justScores,
+            lineTension: 0,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+      tooltips: {
+        enabled: false,
+        position: 'average',
+        custom: function(tooltipModel){
+          var tooltipEl = tag.refs.myTooltip.root;
+
+          // Question is when is this "custom" function executing?
+          // console.log tells me this executes on every frame
+          // console.log('tooltip', tooltipEl);
+
+          // I want to update my tooltip (tag) on some condition...
+          // Probably when the thing my cursor is over changes
+          // So I have to look into where that data is to be found. more console.log
+          // Turns out it has to do with callbacks, label... see below
+
+
+          // Second question is, what is 'this' in this function context?
+          // console.log(this);
+
+          // `this` will be the overall tooltip
+          var position = this._chart.canvas.getBoundingClientRect();
+
+          tooltipEl.style.opacity = 1;
+          tooltipEl.style.position = 'absolute';
+          tooltipEl.style.left = position.left + tooltipModel.caretX + 'px';
+          tooltipEl.style.top = position.top + tooltipModel.caretY + 'px';
+>>>>>>> db172333d41d7408f4ad06f5c54d06f43a1e36a7
 
 
       // this.chart.data.datasets[0].data[this.day] = score; this.chart.data.labels[0] = 'MONDAY';
