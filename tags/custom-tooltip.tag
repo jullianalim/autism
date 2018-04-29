@@ -1,7 +1,7 @@
 <custom-tooltip>
 
-	    <input type="text" ref="comment">
-      <p>Observation Comments: { opts.message}</p>
+			<p>Observation Comments: { opts.message}</p>
+			<input type="text" ref="comment">
  <!-- <p>Y Value: { opts.tooltipData.yLabel }</p>
 	<p>blah { opts.x }</p> -->
 

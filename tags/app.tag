@@ -7,7 +7,6 @@
 
   <br></br>
   <h3>Data Input</h3>
-  <p>Select day and enter today's Learn Unit Score.</p>
   <select ref="dayOfWeek" onchange={ setDay }>
     <option value="m">Monday</option>
     <option value="t">Tuesday</option>
