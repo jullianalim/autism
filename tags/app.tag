@@ -1,6 +1,6 @@
 <app>
 
-  <h1>Children Progress Tracker</h1>
+  <h1>Student Progress Tracker</h1>
   <canvas ref="myChart" width="100%"></canvas>
 
   <input type="number" ref="score">
@@ -8,7 +8,7 @@
 		<option value="m">Monday</option>
 		<option value="t">Tuesday</option>
     <option value="w">Wednesday</option>
-    <option value="h">Thursday</option>
+    <option value="r">Thursday</option>
     <option value="f">Friday</option>
 	</select>
 	<button onclick={ setNumber }>Enter Number</button>
