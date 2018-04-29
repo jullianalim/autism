@@ -4,16 +4,20 @@
   <p>Weekly Learn Unit Scores</p>
   <canvas ref="myChart" width="100%"></canvas>
 
-  <input type="number" ref="score">
-	<select ref="dayOfWeek" onchange={ setDay }>
-		<option value="m">Monday</option>
-		<option value="t">Tuesday</option>
+
+  <br></br>
+  <h3>Data Input</h3>
+  <p>Select day and enter today's Learn Unit Score.</p>
+  <select ref="dayOfWeek" onchange={ setDay }>
+    <option value="m">Monday</option>
+    <option value="t">Tuesday</option>
     <option value="w">Wednesday</option>
     <option value="r">Thursday</option>
     <option value="f">Friday</option>
-	</select>
-	<button onclick={ setNumber }>Enter Number</button>
-
+  </select>
+  <input type="number" ref="score">
+	<button onclick={ setNumber }>Enter Unit Score</button>
+  <br></br>
 	<custom-tooltip ref="myTooltip" tooltip-data={ tooltipData } x={"Jin"}></custom-tooltip>
 
   <script>
