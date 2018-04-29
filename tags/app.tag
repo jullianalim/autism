@@ -3,16 +3,16 @@
   <h1>Student Progress Tracker</h1>
   <p>Weekly Learn Unit Scores</p>
   <canvas ref="myChart" width="100%"></canvas>
-<<<<<<< HEAD
+
   <input type="text" ref="comment">
   <input type="number" ref="score">
-=======
 
 
   <br></br>
   <h3>Data Input</h3>
+
   <p>Select day and enter today's Learn Unit Score.</p>
->>>>>>> db172333d41d7408f4ad06f5c54d06f43a1e36a7
+
   <select ref="dayOfWeek" onchange={ setDay }>
     <option value="m">Monday</option>
     <option value="t">Tuesday</option>
@@ -20,16 +20,12 @@
     <option value="r">Thursday</option>
     <option value="f">Friday</option>
   </select>
-<<<<<<< HEAD
-  <button onclick={ setNumber }>Enter Number</button>
 
-  <custom-tooltip ref="myTooltip" tooltip-data={ tooltipData } x={"Jin"}></custom-tooltip>
-=======
+
   <input type="number" ref="score">
 	<button onclick={ setNumber }>Enter Unit Score</button>
   <br></br>
 	<custom-tooltip ref="myTooltip" tooltip-data={ tooltipData } x={"Jin"}></custom-tooltip>
->>>>>>> db172333d41d7408f4ad06f5c54d06f43a1e36a7
 
   <script>
     var tag = this;
@@ -63,18 +59,13 @@
 
 
     setNumber(e) {
-<<<<<<< HEAD
+
       var score = this.refs.score.value;
 
       console.log(this.chart.data.datasets);
 
       scoresRef.child(this.day + '/score').set(score);
-=======
-  var score = this.refs.score.value;
 
-  console.log(this.chart.data.datasets);
-
-  scoresRef.child(this.day + '/score').set(score);
 
   // this.chart.data.datasets[0].data[this.day] = score;
   // this.chart.data.labels[0] = 'MONDAY';
@@ -137,8 +128,6 @@ this.on('mount', function(){
           tooltipEl.style.position = 'absolute';
           tooltipEl.style.left = position.left + tooltipModel.caretX + 'px';
           tooltipEl.style.top = position.top + tooltipModel.caretY + 'px';
->>>>>>> db172333d41d7408f4ad06f5c54d06f43a1e36a7
-
 
       // this.chart.data.datasets[0].data[this.day] = score; this.chart.data.labels[0] = 'MONDAY';
       //
