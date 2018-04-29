@@ -1,6 +1,7 @@
 <app>
 
   <h1>Student Progress Tracker</h1>
+  <p>Weekly Learn Unit Scores</p>
   <canvas ref="myChart" width="100%"></canvas>
 
   <input type="number" ref="score">
@@ -67,7 +68,7 @@ this.on('mount', function(){
     data: {
         labels: ["M", "T", "W", "R", "F"],
         datasets: [{
-            label: 'Learn Unit Score',
+            label: 'Current Week',
             data: this.justScores,
             lineTension: 0,
             backgroundColor: [
