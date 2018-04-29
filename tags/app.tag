@@ -7,6 +7,9 @@
 	<select ref="dayOfWeek" onchange={ setDay }>
 		<option value="m">Monday</option>
 		<option value="t">Tuesday</option>
+    <option value="w">Wednesday</option>
+    <option value="h">Thursday</option>
+    <option value="f">Friday</option>
 	</select>
 	<button onclick={ setNumber }>Enter Number</button>
 
@@ -36,6 +39,9 @@
 
 			tag.chart.data.datasets[0].data[0] = justScores[0];
 			tag.chart.data.datasets[0].data[1] = justScores[1];
+      tag.chart.data.datasets[0].data[2] = justScores[2];
+      tag.chart.data.datasets[0].data[3] = justScores[3];
+      tag.chart.data.datasets[0].data[4] = justScores[4];
 
 			tag.chart.update();
 		});
