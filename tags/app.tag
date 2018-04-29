@@ -13,7 +13,7 @@
 	<custom-tooltip ref="myTooltip" tooltip-data={ tooltipData } x={"Jin"}></custom-tooltip>
 
   <script>
-    var that = this;
+    var tag = this;
     console.log('app.tag');
     this.toolText = "This is my text.";
     this.tooltipData = {};
@@ -215,7 +215,7 @@ this.on('mount', function(){
       });
     });
     */
-    
+
   </script>
 
   <style>
