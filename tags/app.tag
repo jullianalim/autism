@@ -67,7 +67,7 @@ this.on('mount', function(){
     data: {
         labels: ["M", "T", "W", "R", "F"],
         datasets: [{
-            label: '# of Votes',
+            label: 'Learn Unit Score',
             data: this.justScores,
             lineTension: 0,
             backgroundColor: [
