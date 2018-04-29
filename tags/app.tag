@@ -43,6 +43,8 @@
       var justScores = data.map(function (obj) {
         return obj.score;
       });
+
+
       console.log(data);
       console.log(justScores);
 
@@ -110,9 +112,12 @@
               }
 
             }
-          );
 
-        }}
+
+        }
+
+      })
+
     });
 
     // Canvas element isn't available until after this tag is mounted. ChartJS requires the canvas element, so we use a lifecycle event.
