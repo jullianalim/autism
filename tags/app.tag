@@ -12,11 +12,13 @@
 
   <p>Select day and enter today's Learn Unit Score.</p>
   <select ref= "week" onChange = {setWeek} >
+    <option value="">Select Week</option>
     <option value="week1">Week1</option>
     <option value="week2">Week2</option>
   </select>
 
   <select ref="dayOfWeek" onchange={ setDay }>
+    <option value="">Select Day</option>
     <option value="m">Monday</option>
     <option value="t">Tuesday</option>
     <option value="w">Wednesday</option>
@@ -24,7 +26,7 @@
     <option value="f">Friday</option>
   </select>
 
-  <input type="number" ref="score">
+  <input type="number" placeholder="Input Unit Score" ref="score">
   <button onclick={ setNumber }>Enter Unit Score</button>
   <br></br>
   <custom-tooltip ref="myTooltip" tooltip-data={ tooltipData } x={"Jin"}></custom-tooltip>
@@ -81,7 +83,7 @@
       console.log(justScores);
 
       tag.chart.data.datasets[0].data = justScores;
-       tag.chart.data.datasets[1].data = week2Scores;
+      tag.chart.data.datasets[1].data = week2Scores;
 
 
       tag.chart.update();
