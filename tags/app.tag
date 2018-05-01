@@ -33,37 +33,37 @@
     this.day = 'm';
 
     setDay(e) {
-      this.day = this.refs.dayOfWeek.value;
+      tag.day = tag.refs.dayOfWeek.value;
     }
 
     scoresRef.on('value', function (snap) {
-      console.log(snap.val());
-      var data = Object.values(snap.val());
+      var data = snap.val();
 
-      var justScores = data.map(function (obj) {
-        return obj.score;
-      });
-
-
+      var justScores = [];
       console.log(data);
-      console.log(justScores);
+      // justScores[0] = data['m'].score;
+      // justScores[1] = data['t'].score;
+      // justScores[2] = data['w'].score;
+      // justScores[3] = data['r'].score;
+      // justScores[4] = data['f'].score;
 
-      tag.chart.data.datasets[0].data[0] = justScores[0];
-      tag.chart.data.datasets[0].data[1] = justScores[1];
-      tag.chart.data.datasets[0].data[2] = justScores[2];
-      tag.chart.data.datasets[0].data[3] = justScores[3];
-      tag.chart.data.datasets[0].data[4] = justScores[4];
+      console.log(justScores);
+      // data.map(function (obj) {
+      //   return obj.score;
+      // });
+
+      tag.chart.data.datasets[0].data = justScores;
 
       tag.chart.update();
     });
 
     setNumber(e) {
 
-      var score = this.refs.score.value;
+      var score = tag.refs.score.value;
 
-      console.log(this.chart.data.datasets);
+      console.log(tag.chart.data.datasets);
 
-      scoresRef.child(this.day + '/score').set(score);
+      scoresRef.child(tag.day + '/score').set(score);
 
     }
 
@@ -78,7 +78,18 @@
           datasets: [
             {
               label: 'Current Week',
-              data: this.justScores,
+             data: [10, 20, 30, 40, 50],
+              lineTension: 0,
+              backgroundColor: [
+                'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)'
+              ],
+              borderColor: [
+                'rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)'
+              ],
+              borderWidth: 1
+            },{
+              label: 'Current Week',
+             data: [10, 20, 30, 40, 50],
               lineTension: 0,
               backgroundColor: [
                 'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)'
