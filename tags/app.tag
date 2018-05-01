@@ -11,6 +11,10 @@
   <h3>Data Input</h3>
 
   <p>Select day and enter today's Learn Unit Score.</p>
+  <select ref= "week" onChange = {setWeek} >
+    <option value="week1">Week1</option>
+    <option value="week2">Week2</option>
+  </select>
 
   <select ref="dayOfWeek" onchange={ setDay }>
     <option value="m">Monday</option>
@@ -32,6 +36,10 @@
     this.tooltipData = {};
     this.day = 'm';
 
+    setWeek(e) {
+      tag.week = tag.refs.week.value;
+    }
+
     setDay(e) {
       tag.day = tag.refs.dayOfWeek.value;
     }
@@ -40,12 +48,12 @@
       var data = snap.val();
 
       var justScores = [];
-      console.log(data['m'].score);
-      justScores[0] = data['m'].score;
-      justScores[1] = data['t'].score;
-      justScores[2] = data['w'].score;
-      justScores[3] = data['r'].score;
-      justScores[4] = data['f'].score;
+      console.log(data);
+      justScores[0] = data['week1']['m']['score'];
+      justScores[1] = data['week1']['t']['score'];
+      justScores[2] = data['week1']['w']['score'];;
+      justScores[3] = data['week1']['r']['score'];;
+      justScores[4] = data['week1']['f']['score'];;
 
 
       console.log(justScores);
@@ -53,17 +61,27 @@
       //   return obj.score;
       // });
       var week2Scores = [];
-      console.log(data['m'].score);
-      week2Scores[0] = data['m'].score;
-      week2Scores[1] = data['t'].score;
-      week2Scores[2] = data['w'].score;
-      week2Scores[3] = data['r'].score;
-      week2Scores[4] = data['f'].score;
+      console.log(data);
+      week2Scores[0] = data['week2']['m']['score'];
+      week2Scores[1] = data['week2']['t']['score'];
+      week2Scores[2] = data['week2']['w']['score'];;
+      week2Scores[3] = data['week2']['r']['score'];;
+      week2Scores[4] = data['week2']['f']['score'];;
+
+
+      // var week2Scores = [];
+      // console.log(data['m'].score);
+      // week2Scores[0] = data['m'].score;
+      // week2Scores[1] = data['t'].score;
+      // week2Scores[2] = data['w'].score;
+      // week2Scores[3] = data['r'].score;
+      // week2Scores[4] = data['f'].score;
 
 
       console.log(justScores);
+
       tag.chart.data.datasets[0].data = justScores;
-      tag.chart.data.datasets[1].data = week2Scores;
+       tag.chart.data.datasets[1].data = week2Scores;
 
 
       tag.chart.update();
@@ -75,7 +93,7 @@
 
       console.log(tag.chart.data.datasets);
 
-      scoresRef.child(tag.day + '/score').set(score);
+      scoresRef.child(tag.week + '/' + tag.day + '/score').set(score);
 
     }
 
