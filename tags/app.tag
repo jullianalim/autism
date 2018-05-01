@@ -40,19 +40,31 @@
       var data = snap.val();
 
       var justScores = [];
-      console.log(data);
-      // justScores[0] = data['m'].score;
-      // justScores[1] = data['t'].score;
-      // justScores[2] = data['w'].score;
-      // justScores[3] = data['r'].score;
-      // justScores[4] = data['f'].score;
+      console.log(data['m'].score);
+      justScores[0] = data['m'].score;
+      justScores[1] = data['t'].score;
+      justScores[2] = data['w'].score;
+      justScores[3] = data['r'].score;
+      justScores[4] = data['f'].score;
+
 
       console.log(justScores);
       // data.map(function (obj) {
       //   return obj.score;
       // });
+      var week2Scores = [];
+      console.log(data['m'].score);
+      week2Scores[0] = data['m'].score;
+      week2Scores[1] = data['t'].score;
+      week2Scores[2] = data['w'].score;
+      week2Scores[3] = data['r'].score;
+      week2Scores[4] = data['f'].score;
 
+
+      console.log(justScores);
       tag.chart.data.datasets[0].data = justScores;
+      tag.chart.data.datasets[1].data = week2Scores;
+
 
       tag.chart.update();
     });
@@ -78,7 +90,7 @@
           datasets: [
             {
               label: 'Current Week',
-             data: [10, 20, 30, 40, 50],
+             // data: [10, 20, 30, 40, 50],
               lineTension: 0,
               backgroundColor: [
                 'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)'
@@ -89,7 +101,7 @@
               borderWidth: 1
             },{
               label: 'Current Week',
-             data: [10, 20, 30, 40, 50],
+             // data: [10, 20, 30, 40, 50],
               lineTension: 0,
               backgroundColor: [
                 'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)'
