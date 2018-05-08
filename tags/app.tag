@@ -12,11 +12,15 @@
 
   <p>Select day and enter today's Learn Unit Score.</p>
   <select ref= "week" onChange = {setWeek} >
+    <option value="">Select Week</option>
     <option value="week1">Week1</option>
     <option value="week2">Week2</option>
+    <option value="week3">Week3</option>
+    <option value="week4">Week4</option>
   </select>
 
   <select ref="dayOfWeek" onchange={ setDay }>
+    <option value="">Select Day</option>
     <option value="m">Monday</option>
     <option value="t">Tuesday</option>
     <option value="w">Wednesday</option>
@@ -24,7 +28,7 @@
     <option value="f">Friday</option>
   </select>
 
-  <input type="number" ref="score">
+  <input type="number" placeholder="Input Unit Score" ref="score">
   <button onclick={ setNumber }>Enter Unit Score</button>
   <br></br>
   <custom-tooltip ref="myTooltip" tooltip-data={ tooltipData } x={"Jin"}></custom-tooltip>
@@ -64,25 +68,34 @@
       console.log(data);
       week2Scores[0] = data['week2']['m']['score'];
       week2Scores[1] = data['week2']['t']['score'];
-      week2Scores[2] = data['week2']['w']['score'];;
-      week2Scores[3] = data['week2']['r']['score'];;
-      week2Scores[4] = data['week2']['f']['score'];;
+      week2Scores[2] = data['week2']['w']['score'];
+      week2Scores[3] = data['week2']['r']['score'];
+      week2Scores[4] = data['week2']['f']['score'];
 
 
-      // var week2Scores = [];
-      // console.log(data['m'].score);
-      // week2Scores[0] = data['m'].score;
-      // week2Scores[1] = data['t'].score;
-      // week2Scores[2] = data['w'].score;
-      // week2Scores[3] = data['r'].score;
-      // week2Scores[4] = data['f'].score;
+      var week3Scores = [];
+      console.log(data);
+      week3Scores[0] = data['week3']['m']['score'];
+      week3Scores[1] = data['week3']['t']['score'];
+      week3Scores[2] = data['week3']['w']['score'];
+      week3Scores[3] = data['week3']['r']['score'];
+      week3Scores[4] = data['week3']['f']['score'];
 
-
-      console.log(justScores);
-
+      var week4Scores = [];
+      console.log(data);
+      week4Scores[0] = data['week4']['m']['score'];
+      week4Scores[1] = data['week4']['t']['score'];
+      week4Scores[2] = data['week4']['w']['score'];
+      week4Scores[3] = data['week4']['r']['score'];
+      week4Scores[4] = data['week4']['f']['score'];
+      
+      
+      
       tag.chart.data.datasets[0].data = justScores;
-       tag.chart.data.datasets[1].data = week2Scores;
-
+      tag.chart.data.datasets[1].data = week2Scores;
+      tag.chart.data.datasets[2].data = week3Scores;
+      tag.chart.data.datasets[3].data = week4Scores;
+      
 
       tag.chart.update();
     });
@@ -128,7 +141,31 @@
                 'rgba(100,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)'
               ],
               borderWidth: 1
-            }
+            },
+            {
+              label: 'Week3',
+             // data: [10, 20, 30, 40, 50],
+              lineTension: 0,
+              backgroundColor: [
+                'rgba(30, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)'
+              ],
+              borderColor: [
+                'rgba(100,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)'
+              ],
+              borderWidth: 1
+            },      {
+                    label: 'Week4',
+                   // data: [10, 20, 30, 40, 50],
+                    lineTension: 0,
+                    backgroundColor: [
+                      'rgba(30, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)'
+                    ],
+                    borderColor: [
+                      'rgba(100,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1
+                  }
+          
           ]
         },
         options: {
