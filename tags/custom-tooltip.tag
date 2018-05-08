@@ -2,15 +2,12 @@
 
 
 
-			<input type="text" ref="comment">
+  <p>comments: {opts.tooltipData}</p>
 
 
-      <p>comments: {opts.tooltipData.xLabel}</p>
+	<!-- <p>comment { opts.x }</p> -->
 
- <!-- <p>Y Value: { opts.tooltipData.yLabel }</p>
-	<p>blah { opts.x }</p> -->
-
-	<button onclick={doSomething }>Comment</button>
+	<!-- <button onclick={doSomething }>Comment</button> -->
 
 	<script>
 		var that = this;
@@ -30,7 +27,7 @@
 
 		}
 
-		
+
 	</script>
 
 	<style>

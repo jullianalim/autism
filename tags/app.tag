@@ -24,6 +24,7 @@
     <option value="r">Thursday</option>
     <option value="f">Friday</option>
   </select>
+  
   <p>Enter today's Learn Unit Score</p>
   <input type="number" placeholder="Input Unit Score" ref="score">
   <button onclick={ setNumber }>Enter Unit Score</button>
@@ -33,13 +34,15 @@
 
   <button onclick={ setComment }>Enter comment</button>
   <br></br>
-  <custom-tooltip ref="myTooltip" tooltip-data={ tooltipData } x={"Jin"}></custom-tooltip>
+  
+  
+  <custom-tooltip tooltip-data={ tooltipData }></custom-tooltip>
 
   <script>
     var tag = this;
     console.log('app.tag');
     this.toolText = "This is my text.";
-    this.tooltipData = {};
+  //  this.tooltipData = {};
     this.day = 'm';
 
     setWeek(e) {
@@ -52,16 +55,30 @@
 
     scoresRef.on('value', function (snap) {
       var data = snap.val();
-
+      
+      
+      //var tooltips= [];
+      
+      var justtooltip = [];
+      console.log(data);
+      justtooltip[0] = data['week1']['m']['comment'];
+      justtooltip[1] = data['week1']['t']['comment'];
+      justtooltip[2] = data['week1']['w']['comment'];
+      justtooltip[3] = data['week1']['r']['comment'];
+      justtooltip[4] = data['week1']['f']['comment'];
+      
+      console.log(justtooltip);
+          
+          
       var justScores = [];
       console.log(data);
       justScores[0] = data['week1']['m']['score'];
       justScores[1] = data['week1']['t']['score'];
-      justScores[2] = data['week1']['w']['score'];;
-      justScores[3] = data['week1']['r']['score'];;
-      justScores[4] = data['week1']['f']['score'];;
+      justScores[2] = data['week1']['w']['score'];
+      justScores[3] = data['week1']['r']['score'];
+      justScores[4] = data['week1']['f']['score'];
 
-      console.log(justScores);
+  
       // data.map(function (obj) {   return obj.score; });
       var week2Scores = [];
       console.log(data);
@@ -92,7 +109,10 @@
       tag.chart.data.datasets[2].data = week3Scores;
       tag.chart.data.datasets[3].data = week4Scores;
 
+      tag.tooltipData= justtooltip[0];
       tag.chart.update();
+      
+      
     });
 
     setNumber(e) {
@@ -171,13 +191,17 @@
 
           ]
         },
+        toolTip:{
+          
+          
+        },
         options: {
           tooltips: {
             enabled: false,
             position: 'average',
             custom: function (tooltipModel) {
-              var tooltipEl = tag.refs.myTooltip.root;
-
+             //var tooltipEl = tag.refs.myTooltip.root;
+          
               // Question is when is this "custom" function executing? console.log tells me this executes on every frame console.log('tooltip', tooltipEl); I want to update my tooltip (tag) on some condition... Probably when the thing my cursor is over changes So
               // I have to look into where that data is to be found. more console.log Turns out it has to do with callbacks, label... see below Second question is, what is 'this' in this function context? console.log(this); `this` will be the overall tooltip
               var position = this._chart.canvas.getBoundingClientRect();
