@@ -24,7 +24,7 @@
     <option value="r">Thursday</option>
     <option value="f">Friday</option>
   </select>
-  
+
   <p>Enter today's Learn Unit Score</p>
   <input type="number" placeholder="Input Unit Score" ref="score">
   <button onclick={ setNumber }>Enter Unit Score</button>
@@ -34,8 +34,8 @@
 
   <button onclick={ setComment }>Enter comment</button>
   <br></br>
-  
-  
+
+
   <custom-tooltip tooltip-data={ tooltipData }></custom-tooltip>
 
   <script>
@@ -55,10 +55,10 @@
 
     scoresRef.on('value', function (snap) {
       var data = snap.val();
-      
-      
+
+
       //var tooltips= [];
-      
+
       var justtooltip = [];
       console.log(data);
       justtooltip[0] = data['week1']['m']['comment'];
@@ -66,10 +66,10 @@
       justtooltip[2] = data['week1']['w']['comment'];
       justtooltip[3] = data['week1']['r']['comment'];
       justtooltip[4] = data['week1']['f']['comment'];
-      
+
       console.log(justtooltip);
-          
-          
+
+
       var justScores = [];
       console.log(data);
       justScores[0] = data['week1']['m']['score'];
@@ -78,7 +78,7 @@
       justScores[3] = data['week1']['r']['score'];
       justScores[4] = data['week1']['f']['score'];
 
-  
+
       // data.map(function (obj) {   return obj.score; });
       var week2Scores = [];
       console.log(data);
@@ -111,8 +111,8 @@
 
       tag.tooltipData= justtooltip[0];
       tag.chart.update();
-      
-      
+
+
     });
 
     setNumber(e) {
@@ -151,49 +151,49 @@
                 'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)'
               ],
               borderColor: [
-                'rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)'
+                '#BF1C83'
               ],
-              borderWidth: 1
+              borderWidth: 2.5
             }, {
               label: 'Week2',
               // data: [10, 20, 30, 40, 50],
               lineTension: 0,
               backgroundColor: [
-                'rgba(100, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)'
+                'rgba(200, 99, 200, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)'
               ],
               borderColor: [
-                'rgba(100,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)'
+                '#7A21A8'
               ],
-              borderWidth: 1
+              borderWidth: 2.5
             }, {
               label: 'Week3',
               // data: [10, 20, 30, 40, 50],
               lineTension: 0,
               backgroundColor: [
-                'rgba(30, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)'
+                'rgba(30, 99, 150, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)'
               ],
               borderColor: [
-                'rgba(100,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)'
+                '#2B1AB5'
               ],
-              borderWidth: 1
+              borderWidth: 2.5
             }, {
               label: 'Week4',
               // data: [10, 20, 30, 40, 50],
               lineTension: 0,
               backgroundColor: [
-                'rgba(30, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)'
+                'rgba(50, 50, 250, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)'
               ],
               borderColor: [
-                'rgba(100,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)'
+                '#1AADB5'
               ],
-              borderWidth: 1
+              borderWidth: 2.5
             }
 
           ]
         },
         toolTip:{
-          
-          
+
+
         },
         options: {
           tooltips: {
@@ -201,7 +201,7 @@
             position: 'average',
             custom: function (tooltipModel) {
              //var tooltipEl = tag.refs.myTooltip.root;
-          
+
               // Question is when is this "custom" function executing? console.log tells me this executes on every frame console.log('tooltip', tooltipEl); I want to update my tooltip (tag) on some condition... Probably when the thing my cursor is over changes So
               // I have to look into where that data is to be found. more console.log Turns out it has to do with callbacks, label... see below Second question is, what is 'this' in this function context? console.log(this); `this` will be the overall tooltip
               var position = this._chart.canvas.getBoundingClientRect();
