@@ -3,9 +3,7 @@
   <h1>Student Progress Tracker</h1>
   <p>Weekly Learn Unit Scores</p>
   <canvas ref="myChart" width="100%"></canvas>
-
-  <input type="text" ref="comment">
-
+  
 
   <br></br>
   <h3>Data Input</h3>
@@ -29,7 +27,9 @@
   </select>
 
   <input type="number" placeholder="Input Unit Score" ref="score">
+  <input type="text" placeholder="Input comment" ref="comment">
   <button onclick={ setNumber }>Enter Unit Score</button>
+      <button onclick={ setComment }>Enter comment</button>
   <br></br>
   <custom-tooltip ref="myTooltip" tooltip-data={ tooltipData } x={"Jin"}></custom-tooltip>
 
@@ -107,6 +107,15 @@
       console.log(tag.chart.data.datasets);
 
       scoresRef.child(tag.week + '/' + tag.day + '/score').set(score);
+
+    }
+    setComment(e) {
+
+      var comment = tag.refs.comment.value;
+
+      console.log(tag.chart.data.datasets);
+
+      scoresRef.child(tag.week + '/' + tag.day + '/comment').set(comment);
 
     }
 
